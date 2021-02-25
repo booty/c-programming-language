@@ -18,4 +18,6 @@ int main() {
 		printf("%7.1f\t%7.1f\n", celc, fahr);
 		celc += step;
 	}
+
+	return 0;
 }

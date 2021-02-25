@@ -19,6 +19,8 @@ int main() {
 			printf("%s", current_line);
 		}
 	}
+
+	return 0;
 }
 
 int booty_getline(char line[], int maxlength) {

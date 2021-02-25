@@ -6,7 +6,7 @@ Exercise l-14. Write a program to print a histogram of the frequencies of differ
 
 #define MAX_VAL 123
 
-void ex_1_14() {
+int main() {
 	char c;
 	int tallies[MAX_VAL];
 	int tally;
@@ -29,10 +29,6 @@ void ex_1_14() {
 			printf("%5i\n", tallies[i]);
 		}
 	}
-}
-
-int main() {
-	ex_1_14();
 
 	return 0;
 }

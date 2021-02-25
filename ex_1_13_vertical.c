@@ -59,4 +59,6 @@ int main() {
 		printf(" %1i  ", length_col);
 	}
 	putchar('\n');
+
+	return 0;
 }

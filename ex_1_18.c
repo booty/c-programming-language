@@ -19,7 +19,6 @@ int main() {
 		c = myline[pos];
 
 		if((c!=' ') && (c!='\t') && (c!='\n'))  {
-			// printf("last_good_char is now %i\n", pos);
 			last_good_char = pos;
 		}
 	}

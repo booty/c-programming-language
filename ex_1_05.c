@@ -9,4 +9,6 @@ int main() {
 		int celc = 5 * (fahr-32) / 9;
 		printf("f:%5i\tc:%5i\n", fahr, celc);
 	}
+
+	return 0;
 }

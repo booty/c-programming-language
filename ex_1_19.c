@@ -18,8 +18,9 @@ int main() {
 		}
 		putchar('\n');
 	}
-}
 
+	return 0;
+}
 
 int booty_getline(char line[], int maxlength) {
 	int c, i;

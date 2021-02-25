@@ -42,4 +42,6 @@ int main() {
 	for(int i=1; i <= MAX_WORD_LENGTH; i++) {
 		printf("%6i   %5i\n", i, word_lengths[i]);
 	}
+
+	return 0;
 }
