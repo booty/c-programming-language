@@ -17,6 +17,9 @@ int booty_getline(char line[], int maxlength);
 void detab(char line[], int tab_size);
 void putspaces(int num);
 
+
+// hmmm, this might only handle leading spaces properly?
+
 int main() {
 	char line[MAX_LENGTH];
 	int length;
