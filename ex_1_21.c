@@ -24,7 +24,6 @@ int main() {
 	while ((length = booty_getline(line, MAX_LENGTH)) != 0) {
 		entab(line, TAB_SIZE);
 	}
-	putchar('\n');
 	return 0;
 }
 
@@ -42,11 +41,11 @@ void entab(char line[], int tab_size) {
 	// printf("              |-----------------------------------------\n");
 	// printf("original line | %s", line);
 	// printf("new ver       | ");
-	printf("-----------------------------------------\n");
-	printf("01234567890123456789012345678901234567890\n");
-	printf("        T       T       T       T       T\n");
-	printf("-----------------------------------------\n");
-	printf("%s\n", line);
+	// printf("-----------------------------------------\n");
+	// printf("01234567890123456789012345678901234567890\n");
+	// printf("        T       T       T       T       T\n");
+	// printf("-----------------------------------------\n");
+	// printf("%s", line);
 
 	while ((c = line[input_col]) != '\0') {
 		/*
@@ -56,7 +55,6 @@ void entab(char line[], int tab_size) {
 
 		if the output column is a tab stop, then replace all
 		previous spaces (if any) with a tab, and output the current char
-
 		*/
 
 		output_col_is_tabstop = (output_col % TAB_SIZE == 0);
