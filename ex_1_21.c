@@ -48,31 +48,19 @@ void entab(char line[], int tab_size) {
 	// printf("%s", line);
 
 	while ((c = line[input_col]) != '\0') {
-		/*
-		current char is tab?
-		output column is tabstop?
-		current char is space?
-
-		if the output column is a tab stop, then replace all
-		previous spaces (if any) with a tab, and output the current char
-		*/
-
 		output_col_is_tabstop = (output_col % TAB_SIZE == 0);
 
 		if (output_col_is_tabstop) {
 			switch(consecutive_spaces) {
 				case 0:
-					// do nothing?
 					break;
 				case 1:
 					putchar(' ');
 					break;
 				default:
-					// putchar('!');
 					putchar('\t');
 			}
 			consecutive_spaces=0;
-			// output_col++;
 		}
 
 		switch(c) {
