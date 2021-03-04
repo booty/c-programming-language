@@ -66,17 +66,28 @@ void check_line_comment(
 }
 
 void check_string_literal(char c, char last_char, int inside_any_comment, int inside_character_constant, int *inside_string_literal) {
-	// if (inside_any_comment) return;
+	if (inside_any_comment) return;
 
 	if (!inside_character_constant && (c == '"')) {
-		if (*inside_string_literal && (last_char != '\\')) {
-			printf("\033[31;1m[OUT %c]\033[0m", last_char);
+		if (last_char == '\\') return;
+
+		if (*inside_string_literal) {
+			// printf("\033[31;1m[OUT %c]\033[0m", last_char);
 			*inside_string_literal = FALSE;
 		}
 		else {
-			printf("\033[31;1m[IN %c]\033[0m", last_char);
+			// printf("\033[31;1m[IN %c]\033[0m", last_char);
 			*inside_string_literal = TRUE;
 		}
+	}
+}
+
+void check_character_constant(char c, int inside_any_comment, int inside_string_literal, int *inside_character_constant) {
+	if (inside_any_comment) return;
+	if (inside_string_literal) return;
+
+	if (c == '\'') {
+		*inside_character_constant = !*inside_character_constant;
 	}
 }
 
@@ -99,27 +110,12 @@ int main() {
 
 		inside_any_comment = inside_line_comment || inside_block_comment;
 
+		check_string_literal(c, last_char, inside_any_comment, inside_character_constant, &inside_string_literal);
 
-		if (!inside_any_comment) {
-			// if (!inside_character_constant && (c == '"')) {
-			// 	if (inside_string_literal && (last_char != '\\')) {
-			// 	  printf("[OUT]");
-			// 		inside_string_literal = FALSE;
-			// 	}
-			// 	else {
-			// 	  printf("[IN]");
-			// 		inside_string_literal = TRUE;
-			// 	}
-			// }
-			check_string_literal(c, last_char, inside_any_comment, inside_character_constant, &inside_string_literal);
+		check_character_constant(c, inside_any_comment, inside_string_literal, &inside_character_constant);
 
-			if (!inside_string_literal && (c == '\'')) {
-				inside_character_constant = !inside_character_constant;
-			}
-
-			if (!was_was_inside_any_comment && (last_char != BOF)) {
-				putchar(last_char);
-			}
+		if (!inside_any_comment && !was_was_inside_any_comment && (last_char != BOF)) {
+			putchar(last_char);
 		}
 
 		was_was_inside_any_comment = was_inside_any_comment;
