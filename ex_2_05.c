@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
 /*
 Exercise 2-5. Write the function any(s1,s2), which
 returns the first location in the string s1 where
